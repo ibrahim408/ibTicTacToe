@@ -1,14 +1,12 @@
 import React from 'react'
-import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native'
+import {View, StyleSheet, TouchableOpacity} from 'react-native'
 import IconEntypo from 'react-native-vector-icons/Entypo'
 
-
 function Keypad({board,onPressCell}){
-    const items = [1,2,3];
 
     const renderRow = (row,cells) => {
         return (
-            <View style={styles.row}>
+            <View key={row} style={styles.row}>
                 {cells.map((value,index) => renderCell(row,index,value))}
             </View>
         )
@@ -16,7 +14,7 @@ function Keypad({board,onPressCell}){
 
     const renderCell = (row,cell,value) => {
         return (
-            <TouchableOpacity onPress={ () => onPressCell(row,cell,value)} style={styles.cell}>
+            <TouchableOpacity key={`${row}-${cell}`} onPress={ () => onPressCell(row,cell,value)} style={styles.cell}>
                 {value === 0 ?  null : value === 1 ?   <IconEntypo name="cross" size={55}/> : <IconEntypo name="circle" size={55}/> }
             </TouchableOpacity>
         )
@@ -24,9 +22,7 @@ function Keypad({board,onPressCell}){
 
     return (
         <View style={styles.container}>
-            <ScrollView scrollEnabled={false} contentContainerStyle={styles.scrollViewContainer}>
-                {board.map((cells,index) => renderRow(index,cells))}
-            </ScrollView>
+            {board.map((cells,index) => renderRow(index,cells))}
         </View>
     )
 }
@@ -34,6 +30,8 @@ function Keypad({board,onPressCell}){
 const styles = StyleSheet.create({
     container: {
         flex: 8,
+        flexDirection: 'column',
+        justifyContent: 'center',
     },
     scrollViewContainer: {
         flex: 1,
@@ -49,7 +47,7 @@ const styles = StyleSheet.create({
     cell: {
         width: 100,
         height: 100,
-        shadowColor: "#000",
+        shadowColor: "#000000",
         shadowOffset: {
             width: 0,
             height: 2,
@@ -62,9 +60,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    circle: {
-
     }
 })
 

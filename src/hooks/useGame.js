@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import {Alert} from 'react-native'
-import {winningCombination, initialBoardState} from '../utility/staticValues'
+import {initialBoardState} from '../utility/staticValues'
 import helpers from '../utility/helpers'
 
 export const useGame  = ()=> {
+
     const [turn,setTurn] = useState('letter-x');
     const [board, setBoard] = useState(JSON.parse(JSON.stringify(initialBoardState)));
     const [gameState,setGameState] = useState('playing')
@@ -66,8 +67,6 @@ export const useGame  = ()=> {
           );
     }
 
-    
-    console.log('gameState: ',gameState);
     return {
         board, 
         gameState,

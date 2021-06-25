@@ -1,6 +1,5 @@
 import React from 'react'
-import {View, StyleSheet, TouchableOpacity, Text, Alert} from 'react-native'
-
+import {View, StyleSheet, TouchableOpacity, Text} from 'react-native'
 
 function Button({onPressRestart}){
 
@@ -23,8 +22,8 @@ const styles = StyleSheet.create({
     button: {
         width: '100%',
         height: '50%',
-        backgroundColor: 'green',
-        shadowColor: "green",
+        backgroundColor: '#CD5C5C',
+        shadowColor: "#DC143C",
         shadowOffset: {
             width: 0,
             height: 10,

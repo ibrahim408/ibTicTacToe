@@ -12,13 +12,10 @@ import Button from './src/component/Button'
 import Keypad from './src/component/Keypad'
 import {useGame} from './src/hooks/useGame'
 
-
 function App(){
 
   const { board, onPressCell, onPressRestart }   = useGame();
 
-  console.log();
-  
   return (
     <View style={styles.container}>
       <Keypad board={board} onPressCell={onPressCell} />
@@ -33,6 +30,5 @@ const styles = StyleSheet.create({
     flexDirection:  'column'
   }
 })
-
 
 export default App;

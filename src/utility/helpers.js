@@ -2,7 +2,6 @@ import {winningCombination} from './staticValues'
 
 const helpers = {
     checkIfWon: (board,turn) => {
-        console.log(turn)
         return winningCombination.some(combination => {
             return combination.every(index => {
                 const y = Math.floor(index / 3);
